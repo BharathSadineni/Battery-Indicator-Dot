@@ -8,13 +8,14 @@ class BatteryIndicator:
         self.display_size = 15
         self.root = tk.Tk()
         self.root.title("Battery Indicator")
-        self.root.overrideredirect(True)
-        self.root.attributes('-topmost', True)
-
-        # Make magenta the transparent color (Windows only)
+        self.root.overrideredirect(True)  # Removes window borders
+        self.root.attributes('-topmost', True)  # Always on top
         self.root.configure(bg='magenta')
+
+        # Set transparent background (Windows only)
         self.root.attributes('-transparentcolor', 'magenta')
 
+        # Position top-right
         screen_width = self.root.winfo_screenwidth()
         x = screen_width - self.display_size - 20
         y = 20
@@ -27,8 +28,12 @@ class BatteryIndicator:
 
         self.running = True
         self.last_power_plugged = None
+
+        # Right-click to close
         self.root.bind('<Button-3>', lambda e: self.close())
-        self.update_dot()  # Start the periodic update
+
+        # Start update loop
+        self.update_dot()
 
     def draw_indicator(self, color):
         img = Image.new('RGBA', (self.display_size, self.display_size), (0, 0, 0, 0))
@@ -40,20 +45,21 @@ class BatteryIndicator:
     def update_dot(self):
         try:
             battery = psutil.sensors_battery()
-            if battery is not None:
+            if battery:
                 power_plugged = battery.power_plugged
                 color = '#00FF00' if power_plugged else '#808080'
             else:
                 power_plugged = None
                 color = '#808080'
-            # Only redraw if status changed
+
             if power_plugged != self.last_power_plugged:
                 img = self.draw_indicator(color)
-                self.canvas.image = img
+                self.canvas.image = img  # Prevent garbage collection
                 self.canvas.itemconfig(self.image_on_canvas, image=img)
                 self.last_power_plugged = power_plugged
         except Exception as e:
             print(f"Error: {e}")
+
         if self.running:
             self.root.after(2000, self.update_dot)
 
