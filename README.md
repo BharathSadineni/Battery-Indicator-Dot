@@ -16,12 +16,12 @@ If you keep your Windows taskbar set to auto-hide for a true full-screen experie
 ## Demo Images
 
 <p align="center">
-  <img src="Battery Indicator Dot ON.png" alt="Battery Indicator ON" width="300"/>
+  <img src="Battery Indicator Dot ON Image.png" alt="Battery Indicator ON" width="300"/>
 </p>
-<p align="center"><i>Battery Indicator ON: The battery indicator dot is clearly visible, showing the active (ON) state.</i></p>
+<p align="center"><i>Battery Indicator ON: The battery indicator dot is visible, showing the active (ON) state.</i></p>
 
 <p align="center">
-  <img src="Battery Indicator Dot OFF.png" alt="Battery Indicator OFF" width="300"/>
+  <img src="Battery Indicator Dot OFF Image.png" alt="Battery Indicator OFF" width="300"/>
 </p>
 <p align="center"><i>Battery Indicator OFF: The battery indicator dot is not illuminated, illustrating the inactive (OFF) state.</i></p>
 
