@@ -13,6 +13,19 @@ If you keep your Windows taskbar set to auto-hide for a true full-screen experie
 - Right-click to close
 - Transparent background (Windows only)
 
+## Demo Images
+
+<p align="center">
+  <img src="Battery Indicator Dot ON.png" alt="Battery Indicator ON" width="300"/>
+</p>
+<p align="center"><i>Battery Indicator ON: The battery indicator dot is clearly visible, showing the active (ON) state.</i></p>
+
+<p align="center">
+  <img src="Battery Indicator Dot OFF.png" alt="Battery Indicator OFF" width="300"/>
+</p>
+<p align="center"><i>Battery Indicator OFF: The battery indicator dot is not illuminated, illustrating the inactive (OFF) state.</i></p>
+
+
 ## Requirements
 - Python 3.7+
 - [psutil](https://pypi.org/project/psutil/)
